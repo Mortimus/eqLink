@@ -49,7 +49,7 @@ func main() {
 	myApp := app.New()
 	myWindow := myApp.NewWindow("Everquest Hotkeys")
 
-	help := widget.NewTextGridFromString("How to\nStart everquest, and login to your character.\nHit the locate everquest folder button and locate the base everquest folder (contains eqgame.exe).")
+	help := widget.NewTextGridFromString("How to\nStart everquest, and login to your character.\nHit the locate everquest folder button and locate the base everquest folder (contains eqgame.exe).\nCommon locations\nC:\\Program Files(x86)\\Steam\\Steamapps\\common\\Everquest F2P\nC:\\Users\\Public\\Daybreak Game Company\\Installed Games\\Everquest")
 	openBtn := widget.NewButton("Locate Everquest Folder", func() {
 		dialog.ShowFolderOpen(func(list fyne.ListableURI, err error) {
 			if err != nil {
@@ -130,11 +130,16 @@ func main() {
 						charHotkeys.Resize(fyne.NewSize(500, 600))
 						charHotkeys.SetContent(list)
 						charHotkeys.Show()
+						charSelect.Hide()
+						charHotkeys.SetOnClosed(func() {
+							os.Exit(0)
+						})
 					}
 				})
 			charSelect.Resize(fyne.NewSize(300, 600))
 			charSelect.SetContent(charList)
 			charSelect.Show()
+			myWindow.Hide()
 
 		}, myWindow)
 	})
