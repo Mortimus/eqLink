@@ -99,7 +99,7 @@ func main() {
 								o.(*widget.Button).OnTapped = func() {
 									win := myApp.NewWindow("Edit Hotkey")
 									help := widget.NewTextGridFromString("Send a CROSS-SERVER tell to the link you want to use\n;t ITEM_LINK\n;t ACHIEVMENT_LINK\n;t SPELL_LINK\nThis will update the box below shortly after Everquest says it cannot find the player.")
-									help2 := widget.NewTextGridFromString("After saving the hotkey CAMP to DESKTOP\n/camp desktop\nAnd log back in, it will NOT reload unless you do this.")
+									help2 := widget.NewTextGridFromString("After inserting the link, make sure to scroll right and change the EDIT_THIS_TEXT to what you want it to say.\nAfter saving the hotkey CAMP to DESKTOP\n/camp desktop\nAnd log back in, it will NOT reload unless you do this.")
 									input := widget.NewEntry()
 									input.SetText(hotkeys[i].value) // Max size is 255 characters
 									linkInput := widget.NewEntryWithData(link)
